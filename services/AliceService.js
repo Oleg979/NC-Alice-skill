@@ -11,7 +11,13 @@ module.exports = class AliceService {
           [PARAM_FOR_POST]: msg
         })
       )
-      .then(res => console.log(res))
-      .catch(e => console.log(e));
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(e => {
+        console.log(e);
+        return "Unknown error";
+      });
   }
 };
