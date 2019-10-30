@@ -16,3 +16,5 @@ router.get("/ping", async (req, res) => {
     }
   });
 });
+
+module.exports = router;
