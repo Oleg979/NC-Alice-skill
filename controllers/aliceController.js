@@ -13,7 +13,7 @@ router.post("/ping", async (req, res) => {
     version,
     session,
     response: {
-      text: text || "Привет!",
+      text: text || "Hello!",
       end_session: false
     }
   });
