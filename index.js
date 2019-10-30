@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const { SERVER_HANDLE_URL } = require("./config/constants");
+const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 
 axios.interceptors.request.use(config => {
   if (!isAbsoluteURLRegex.test(config.url)) {
