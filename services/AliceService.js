@@ -3,7 +3,7 @@ const { PARAM_FOR_POST } = require("../config/constants");
 const querystring = require("querystring");
 
 module.exports = class AliceService {
-  static forwardToServer() {
+  static forwardToServer(msg) {
     axios
       .post(
         "/",
