@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
       session,
       response: {
         text: serverResponse.data,
-        tts: serverResponse.data
+        tts: serverResponse.data,
         end_session: false
       }
     });
