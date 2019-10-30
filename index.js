@@ -1,6 +1,14 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const { SERVER_HANDLE_URL } = require("./config/constants");
+
+axios.interceptors.request.use(config => {
+  if (!isAbsoluteURLRegex.test(config.url)) {
+    config.url = join(SERVER_HANDLE_URL, config.url);
+  }
+  return config;
+});
 
 const app = express();
 app.use(cors());
