@@ -12,6 +12,6 @@ module.exports = class AliceService {
         })
       )
       .then(res => console.log(res))
-      .then(e => console.log(e));
+      .catch(e => console.log(e));
   }
 };
