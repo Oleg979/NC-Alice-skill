@@ -22,15 +22,26 @@ router.post("/ping", async (req, res) => {
 router.post("/", async (req, res) => {
   const { request, session, version } = req.body;
   const text = request.original_utterance;
-  const serverResponse = await AliceService.forwardToServer(text);
-  res.status(200).send({
-    version,
-    session,
-    response: {
-      text: request.original_utterance || "Привет!",
-      end_session: false
-    }
-  });
+  try {
+    const serverResponse = await AliceService.forwardToServer(text);
+    res.status(200).send({
+      version,
+      session,
+      response: {
+        text: serverResponse.data,
+        end_session: false
+      }
+    });
+  } catch (e) {
+    res.status(200).send({
+      version,
+      session,
+      response: {
+        text: "Ошибка",
+        end_session: false
+      }
+    });
+  }
 });
 
 module.exports = router;
