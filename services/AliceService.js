@@ -12,7 +12,8 @@ const DEFAULT_ANSWERS = {
 module.exports = class AliceService {
   static forwardToServer(msg) {
     msg = msg.toLowerCase();
-    if (DEFAULT_ANSWERS[msg]) return Promise.resolve(DEFAULT_ANSWERS[msg]);
+    if (DEFAULT_ANSWERS[msg])
+      return Promise.resolve({ data: DEFAULT_ANSWERS[msg] });
     return axios.post(
       "/",
       querystring.stringify({
